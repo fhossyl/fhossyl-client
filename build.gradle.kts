@@ -1,3 +1,5 @@
+@file:Suppress("UNUSED_VARIABLE")
+
 plugins {
     kotlin("multiplatform") version "1.4.10"
 }
@@ -43,7 +45,7 @@ allprojects {
             val commonMain by getting
             val commonTest by getting {
                 dependencies {
-                    api(project(":packets"))
+                    api(project(":mappings"))
                     implementation(kotlin("test-common"))
                     implementation(kotlin("test-annotations-common"))
                 }
