@@ -43,6 +43,7 @@ allprojects {
             val commonMain by getting
             val commonTest by getting {
                 dependencies {
+                    api(project(":packets"))
                     implementation(kotlin("test-common"))
                     implementation(kotlin("test-annotations-common"))
                 }
