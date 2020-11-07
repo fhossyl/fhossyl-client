@@ -2,5 +2,5 @@
 	path = app
 	url = https://github.com/fhossyl/fhossyl-app.git
 [submodule "mappings"]
-	path = mappings
+	path = src/commonMain/resources/mappings
 	url = https://github.com/fhossyl/fhossyl-mappings
