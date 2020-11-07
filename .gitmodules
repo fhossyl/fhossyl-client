@@ -1,3 +1,6 @@
 [submodule "fhossyl-app"]
-	path = fhossyl-app
+	path = app
 	url = https://github.com/fhossyl/fhossyl-app.git
+[submodule "mappings"]
+	path = mappings
+	url = https://github.com/fhossyl/fhossyl-mappings
