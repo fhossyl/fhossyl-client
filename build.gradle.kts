@@ -42,10 +42,15 @@ allprojects {
         }
 
         sourceSets {
-            val commonMain by getting
+            val commonMain by getting {
+                dependencies {
+                    api(project(":packets:bedrock-edition"))
+                    api(project(":packets:java-edition"))
+                    api(project(":packets:common"))
+                }
+            }
             val commonTest by getting {
                 dependencies {
-                    api(project(":mappings"))
                     implementation(kotlin("test-common"))
                     implementation(kotlin("test-annotations-common"))
                 }
