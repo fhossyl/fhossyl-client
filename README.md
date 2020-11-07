@@ -14,13 +14,13 @@ As Fhossyl is a modular project, we separate it into subprojects and three diffe
 
 ⚙️ **Client** The `fhossyl-client` repository separate their function in three subprojects:
     
-  * **Bootstrap** is a low level API divided in 3 subprojects (`bukkit`, `common` and `standalone`),
-  that provide information about the server to the connector.
+  * **Bootstrap** is a low level API divided into 3 subprojects (`bukkit`, `common` and `standalone`),
+  that provides information about the server to the connector.
   
   * **Connector** is a low level API that connects to the provided server using an incompatible
   Minecraft Edition by using the information provided by the bootstrap.
   
-  * **Packets** is a subproject that stores all packets of each game editions.
+  * **Packets** is a subproject that stores all the packets of each game edition.
 
 # Related repositories
 
