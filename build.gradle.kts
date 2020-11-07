@@ -38,12 +38,6 @@ allprojects {
             else -> throw GradleException("Host OS is not supported in Kotlin/Native.")
         }
 
-        js {
-            nodejs {
-                binaries.executable()
-            }
-        }
-
         sourceSets {
             val commonMain by getting {
                 dependencies {
