@@ -1,2 +1,2 @@
 rootProject.name = "fhossyl-client"
-include("mappings")
+include("mappings", "packets")
