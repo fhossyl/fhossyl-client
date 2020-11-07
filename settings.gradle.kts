@@ -5,4 +5,4 @@ val bootstrap = listOf("common", "bukkit", "standalone")
 
 packets.forEach { include(":packets:$it") }
 bootstrap.forEach { include(":bootstrap:$it") }
-include(":connector")
+include(":connector", ":common")
