@@ -1,13 +1,13 @@
 package org.fhossyl.packets.bedrock
 
-import org.fhossyl.packets.Attribute
+import org.fhossyl.packets.BedrockAttribute
 import org.fhossyl.packets.BedrockEntityLink
 import org.fhossyl.packets.BedrockMetadata
 import org.fhossyl.packets.BedrockPacket
 import org.fhossyl.packets.common.Vector3F
 
 data class AddEntityPacket(
-    val attributes: List<Attribute>,
+    val attributes: List<BedrockAttribute>,
     val metadata: Map<BedrockMetadata, Any>,
     val links: List<BedrockEntityLink>,
     val uniqueEntityId: Long,

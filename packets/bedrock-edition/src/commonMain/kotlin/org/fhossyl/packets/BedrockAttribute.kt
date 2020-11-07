@@ -1,6 +1,6 @@
 package org.fhossyl.packets
 
-data class Attribute(
+data class BedrockAttribute(
     val name: String,
     val minimum: Float,
     val maximum: Float,
