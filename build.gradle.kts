@@ -2,14 +2,17 @@
 
 plugins {
     kotlin("multiplatform") version "1.4.10"
+    kotlin("plugin.serialization") version "1.4.10"
 }
 
 allprojects {
 
     plugins.apply("org.jetbrains.kotlin.multiplatform")
+    plugins.apply("org.jetbrains.kotlin.plugin.serialization")
 
     repositories {
         mavenCentral()
+        jcenter()
     }
 
     kotlin {
@@ -47,6 +50,7 @@ allprojects {
                     api(project(":packets:bedrock-edition"))
                     api(project(":packets:java-edition"))
                     api(project(":packets:common"))
+                    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.0.1")
                 }
             }
             val commonTest by getting {
