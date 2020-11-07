@@ -21,4 +21,4 @@ modern versions such as 1.16 and newer.
 [localized]: https://badges.crowdin.net/fhossyl/localized.svg
 [translate]: https://crowdin.com/project/fhossyl
 [actions]: https://github.com/fhossyl/fhossyl-client/actions
-[actions_badge]: https://github.com/fhossyl/fhossyl-client/workflows/CI/badge.svg
+[actions_badge]: https://github.com/fhossyl/fhossyl-client/workflows/Kotlin%20CI%20with%20Gradle/badge.svg
