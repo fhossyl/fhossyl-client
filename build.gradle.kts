@@ -73,8 +73,6 @@ allprojects {
             val linuxX64Test by getting
             val nativeMain by getting
             val nativeTest by getting
-            val jsMain by getting
-            val jsTest by getting
         }
 
     }
