@@ -1,9 +1,10 @@
 package org.fhossyl.packets
 
 import kotlinx.serialization.Polymorphic
+import org.fhossyl.packets.common.Packet
 
 @Polymorphic
-interface BedrockPacket {
+interface BedrockPacket: Packet {
 
     val packetId: Int
 
