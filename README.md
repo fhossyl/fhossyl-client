@@ -35,7 +35,7 @@ These questions are frequently asked or will probably be asked. Please check tha
 you're asking isn't covered by this section before creating a issue.
 
   * **What versions does Fhossyl support? Any plans to support newer versions?** Fhossyl starts from 
-  1.16.4 to the latest stable version for Minecraft: Java Edition and 1.16.x for Minecraft: Bedrock 
+  1.16.3 to the latest stable version for Minecraft: Java Edition and 1.16.x for Minecraft: Bedrock 
   Edition.
     
   * **Any plans to support older versions like 1.8.9 or 1.15?** No. Fhossyl will only support
