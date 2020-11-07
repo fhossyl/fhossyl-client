@@ -50,6 +50,8 @@ allprojects {
                     api(project(":packets:bedrock-edition"))
                     api(project(":packets:java-edition"))
                     api(project(":packets:common"))
+                    implementation("io.ktor:ktor-io:1.4.1")
+                    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.1")
                     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.0.1")
                 }
             }
