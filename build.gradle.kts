@@ -73,6 +73,12 @@ allprojects {
             val linuxX64Test by getting
             val nativeMain by getting
             val nativeTest by getting
+            all {
+                languageSettings.apply {
+                    enableLanguageFeature("InlineClasses")
+                    useExperimentalAnnotation("kotlin.RequiresOptIn")
+                }
+            }
         }
 
     }
