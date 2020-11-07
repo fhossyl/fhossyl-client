@@ -11,6 +11,7 @@ enum class MetadataType {
     Long,
     NBT,
     Vector3I,
-    Vector3F;
+    Vector3F,
+    Unknown;
 
 }
