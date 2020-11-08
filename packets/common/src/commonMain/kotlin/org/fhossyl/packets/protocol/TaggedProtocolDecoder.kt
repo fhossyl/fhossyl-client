@@ -12,7 +12,9 @@ import kotlinx.serialization.modules.EmptySerializersModule
 import kotlinx.serialization.modules.SerializersModule
 import org.fhossyl.packets.common.MinecraftInputDecoding
 import org.fhossyl.packets.common.annotation
-import org.fhossyl.packets.protocol.datatypes.*
+import org.fhossyl.packets.protocol.datatypes.EnumOrdinal
+import org.fhossyl.packets.protocol.datatypes.ProtocolEnumDataType
+import org.fhossyl.packets.protocol.datatypes.ProtocolNumberDataType
 
 @OptIn(
     InternalSerializationApi::class,
@@ -42,62 +44,61 @@ open class TaggedProtocolDecoder(
         }
     }
 
-    override fun decodeTaggedBoolean(tag: ProtocolNumberDescription) = when(val i = input.readByte()) {
+    final override fun decodeTaggedBoolean(tag: ProtocolNumberDescription) = when(val i = input.readByte()) {
         0x00.toByte() -> false
         0x01.toByte() -> true
         else -> error("Expected boolean value (0 or 1), but $i was provided.")
     }
 
-    override fun decodeTaggedByte(tag: ProtocolNumberDescription) = when(tag.dataType) {
+    final override fun decodeTaggedByte(tag: ProtocolNumberDescription) = when(tag.type) {
         ProtocolNumberDataType.Unsigned -> input.readUByte().toByte()
         else -> input.readByte()
     }
 
-    override fun decodeTaggedShort(tag: ProtocolNumberDescription) = when(tag.dataType) {
+    final override fun decodeTaggedShort(tag: ProtocolNumberDescription) = when(tag.type) {
         ProtocolNumberDataType.Unsigned -> input.readUShort().toShort()
         else -> input.readShort()
     }
 
-    override fun decodeTaggedInt(tag: ProtocolNumberDescription): Int = when(tag.dataType) {
+    final override fun decodeTaggedInt(tag: ProtocolNumberDescription): Int = when(tag.type) {
         ProtocolNumberDataType.Signed -> input.readInt()
         ProtocolNumberDataType.Unsigned -> input.readUInt().toInt()
         ProtocolNumberDataType.Var -> MinecraftInputDecoding(input).decode().toInt()
     }
 
-    override fun decodeTaggedLong(tag: ProtocolNumberDescription): Long = when(tag.dataType) {
+    final override fun decodeTaggedLong(tag: ProtocolNumberDescription): Long = when(tag.type) {
         ProtocolNumberDataType.Signed -> input.readLong()
         ProtocolNumberDataType.Unsigned -> input.readULong().toLong()
         ProtocolNumberDataType.Var -> MinecraftInputDecoding(input).decode()
     }
 
-    override fun decodeTaggedFloat(tag: ProtocolNumberDescription): Float = input.readFloat()
+    final override fun decodeTaggedFloat(tag: ProtocolNumberDescription): Float = input.readFloat()
 
-    override fun decodeTaggedDouble(tag: ProtocolNumberDescription): Double = input.readDouble()
+    final override fun decodeTaggedDouble(tag: ProtocolNumberDescription): Double = input.readDouble()
 
     @ExperimentalStdlibApi
-    override fun decodeTaggedString(tag: ProtocolNumberDescription): String {
+    final override fun decodeTaggedString(tag: ProtocolNumberDescription): String {
         return MinecraftInputDecoding(input).decodeString(tag.maximumStringLength)
     }
 
-    override fun decodeTaggedEnum(
+    final override fun decodeTaggedEnum(
         tag: ProtocolNumberDescription,
         descriptor: SerialDescriptor
     ): Int {
-        val type = descriptor.annotation<ProtocolEnum>()?.dataType ?: ProtocolEnumDataType.Var
-        val length = descriptor.annotation<ProtocolString>()?.maximumLength ?: tag.maximumStringLength
-        val enumDescription = ProtocolEnumDescription(type, length)
+        val desc = extractEnum(tag, descriptor)
 
-        val ordinal = when(enumDescription.dataType) {
+        val ordinal = when(desc.type) {
             ProtocolEnumDataType.Var -> MinecraftInputDecoding(input).decode().toInt()
-            ProtocolEnumDataType.String ->
-                descriptor.getElementIndex(MinecraftInputDecoding(input).decodeString(length))
+            ProtocolEnumDataType.String -> descriptor.getElementIndex(
+                MinecraftInputDecoding(input).decodeString(desc.maximumStringLength)
+            )
             ProtocolEnumDataType.Byte -> input.readByte().toInt()
             ProtocolEnumDataType.UnsignedByte -> input.readUByte().toInt()
             ProtocolEnumDataType.Int -> input.readInt()
         }
 
         return (0 until descriptor.elementsCount).firstOrNull {
-            descriptor.annotation<EnumOrdinal>(index)?.ordinal ?: index == ordinal
+            descriptor.annotation<EnumOrdinal>(index)?.int ?: index == ordinal
         } ?: -1
     }
 

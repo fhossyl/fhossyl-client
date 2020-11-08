@@ -5,16 +5,16 @@ import org.fhossyl.packets.protocol.datatypes.ProtocolEnumDataType
 import org.fhossyl.packets.protocol.datatypes.ProtocolNumberDataType
 
 sealed class ProtocolDescription {
-    abstract val dataType: ProtocolDataType
+    abstract val type: ProtocolDataType
     abstract val maximumStringLength: Int
 }
 
 data class ProtocolNumberDescription(
-    override val dataType: ProtocolNumberDataType,
+    override val type: ProtocolNumberDataType,
     override val maximumStringLength: Int = 32767
 ): ProtocolDescription()
 
 data class ProtocolEnumDescription(
-    override val dataType: ProtocolEnumDataType,
+    override val type: ProtocolEnumDataType,
     override val maximumStringLength: Int = 32767
 ): ProtocolDescription()
