@@ -1,6 +1,6 @@
 package org.fhossyl.packets.protocol.datatypes
 
-enum class ProtocolEnumDataType: {
+enum class ProtocolEnumDataType: ProtocolDataType {
 
     Var,
     Byte,
