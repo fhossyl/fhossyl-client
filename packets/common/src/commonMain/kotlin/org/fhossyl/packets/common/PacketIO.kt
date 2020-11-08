@@ -54,7 +54,7 @@ class MinecraftInputDecoding(private val buffer: Input): PacketIO() {
 
 class MinecraftOutputEncoding(private val buffer: Output): PacketIO() {
 
-    fun encode(string: String, maxStringLength: Int = 0) {
+    fun encodeString(string: String, maxStringLength: Int = 0) {
         val bytes = string.toByteArray()
             .takeIf { maxStringLength <= 0 || it.size < maxStringLength }
             ?: error("Unsupported buffer length for decodeString.")
