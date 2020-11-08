@@ -28,8 +28,8 @@ As Fhossyl is a modular project, we separate it into subprojects and three diffe
   adaptation to our uses. You can notice several similarities from the `packets` subproject.
 * [NukkitX Protocol][nukkitxprotocol] by `CloudburstMC`. Like kt-mc-packet, the NukkitX Protocol has also been reworked
   internally for our uses.
-* [Minecraft Protocol Wiki][protocol]. Information about Minecraft servers and clients has been taken from the Minecraft
-  Protocol Wiki.
+* [Minecraft Protocol Wiki][protocol]. Information about Minecraft servers and clients have been taken from the
+  Minecraft Protocol Wiki.
 * [Ktor for I/O][ktorio] by `Ktor Team`. The Ktor for I/O dependency is being used on our
   `build.gradle.kts` for Input/Output work.
 * [kotlinx.serialization][serialization] by `Kotlin`. The kotlinx.serialization dependency is being used on
