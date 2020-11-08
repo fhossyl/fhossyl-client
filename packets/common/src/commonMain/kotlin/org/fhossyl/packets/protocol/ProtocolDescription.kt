@@ -11,10 +11,10 @@ sealed class ProtocolDescription {
 
 data class ProtocolNumberDescription(
     override val dataType: ProtocolNumberDataType,
-    override val maximumStringLength: Int = 0
+    override val maximumStringLength: Int = 32767
 ): ProtocolDescription()
 
 data class ProtocolEnumDescription(
     override val dataType: ProtocolEnumDataType,
-    override val maximumStringLength: Int = 0
+    override val maximumStringLength: Int = 32767
 ): ProtocolDescription()
