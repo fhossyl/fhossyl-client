@@ -1,6 +1,6 @@
 package org.fhossyl.packets.protocol.datatypes
 
-enum class ProtocolNumberDataType: DataType {
+enum class ProtocolNumberDataType: ProtocolDataType {
 
     Unsigned,
     Signed,
