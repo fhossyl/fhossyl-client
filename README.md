@@ -25,12 +25,11 @@ As Fhossyl is a modular project, we separate it into subprojects and three diffe
 # Credits
 
 * [kt-mc-packet][ktmcpacket] by `DevSrSouza`. Some parts of the kt-mc-packet code have been reworked internally for
-  adaptation to our uses. You can notice several similarities from the
-  `packets` subproject.
+  adaptation to our uses. You can notice several similarities from the `packets` subproject.
 * [NukkitX Protocol][nukkitxprotocol] by `CloudburstMC`. Like kt-mc-packet, the NukkitX Protocol has also been reworked
   internally for our uses.
-* [Minecraft Protocol Wiki][protocol]. Information about Minecraft: Java Edition servers and clients has been taken from
-  the Minecraft Protocol Wiki.
+* [Minecraft Protocol Wiki][protocol]. Information about Minecraft servers and clients has been taken from the Minecraft
+  Protocol Wiki.
 * [Ktor for I/O][ktorio] by `Ktor Team`. The Ktor for I/O dependency is being used on our
   `build.gradle.kts` for Input/Output work.
 * [kotlinx.serialization][serialization] by `Kotlin`. The kotlinx.serialization dependency is being used on
@@ -48,7 +47,7 @@ As Fhossyl is a modular project, we separate it into subprojects and three diffe
 # Frequently-asked questions
 
 These questions are frequently asked or will probably be asked. Please check that what you're asking isn't covered by
-this section before creating a issue.
+this section before creating an issue.
 
 * **What versions does Fhossyl support? Any plans to support newer versions?** Fhossyl starts from 1.16.3 to the latest
   stable version for Minecraft: Java Edition and 1.16.x for Minecraft: Bedrock Edition.
